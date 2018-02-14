@@ -1,9 +1,12 @@
-var Tokensale = artifacts.require("./TokenSale.sol");
+var TokenSale = artifacts.require('./TokenSale');
 
 module.exports = function(deployer, network, accounts) {
-	deployer.deploy(Tokensale).then(async () => {
-		const instance = await Tokensale.deployed();
-		const token = await instance.token.call();
+	deployer.deploy(TokenSale).then(async () => {
+		const instance = await TokenSale.deployed();
+		const token = await instance.demotoken.call();
 		console.log('Token Address', token);
 	});
 };
+
+
+
